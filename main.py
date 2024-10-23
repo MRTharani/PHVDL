@@ -38,10 +38,9 @@ async def main():
         table_name = TABLE_NAME
         video_urls = []
         video_urls = get_link(db,table_name)
-        video_urls = video_urls[:100]
+        video_urls = video_urls[:300]
         uploading = []
         for video_url in video_urls:
-            logging.info(f"{video_urls.index(video_url)} : {video_url}")
             video_hash = hash(video_url)
             download_dir = f'downloads/{video_hash}'
             if not os.path.exists(download_dir):
