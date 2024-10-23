@@ -43,6 +43,7 @@ async def main():
         for video_url in video_urls:
             video_hash = hash(video_url)
             download_dir = f'downloads/{video_hash}'
+            logging.info(f"{video_urls.index(video_url)+1}:{video_url} is started Downloading...")
             if not os.path.exists(download_dir):
                 os.makedirs(download_dir) 
             try:
