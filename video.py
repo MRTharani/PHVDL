@@ -20,7 +20,7 @@ def download_video(url, output_path='downloads'):
         with YoutubeDL({'skip_download': True, 'quiet': True, 'dump_single_json': True}) as ydl:
             info = ydl.extract_info(url, download=False)
             views, likes = info.get('view_count', 0), info.get('like_count', 0)
-        if views >= min_views and likes >= min_likes:
+        if views >= min_views:
             print(f"Downloading: {info['title']} (Views: {views}, Likes: {likes})")
             ydl_opts = {
                 'format': 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]',
