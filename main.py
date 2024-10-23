@@ -44,11 +44,7 @@ async def main():
             video_hash = hash(video_url)
             download_dir = f'downloads/{video_hash}'
             if not os.path.exists(download_dir):
-                os.makedirs(download_dir)
-            if len(uploading) >= 100:
-                logging.info("Reached the limit of 100 videos. Stopping the download process.")
-                break
-            
+                os.makedirs(download_dir) 
             try:
                 # Download the video
                 downloaded_video_path = download_video(video_url, output_path=download_dir)
